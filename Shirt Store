@@ -1,0 +1,26 @@
+-created database for all the shirts I sell
+CREATE TABLE shirt_store (id INTEGER PRIMARY KEY, name TEXT, quantity INTEGER, size TEXT, price INTEGER);
+
+INSERT INTO shirt_store VALUES(1, "blue shirt", 4, "M", 7);
+INSERT INTO shirt_store VALUES(2, "blue shirt", 4, "S", 7);
+INSERT INTO shirt_store VALUES(3, "blue shirt", 4, "L", 7);
+INSERT INTO shirt_store VALUES(4, "blue shirt", 4, "XL", 7);
+INSERT INTO shirt_store VALUES(5, "green shirt", 5, "S", 6);
+INSERT INTO shirt_store VALUES(6, "green shirt", 5, "M", 6);
+INSERT INTO shirt_store VALUES(7, "green shirt", 5, "L", 6);
+INSERT INTO shirt_store VALUES(8, "green shirt", 5, "XL", 6);
+INSERT INTO shirt_store VALUES(9, "red shirt", 4, "S", 5);
+INSERT INTO shirt_store VALUES(10, "red shirt", 4, "M", 5);
+INSERT INTO shirt_store VALUES(11, "red shirt", 4, "L", 5);
+INSERT INTO shirt_store VALUES(12, "red shirt", 4, "XL", 5);
+INSERT INTO shirt_store VALUES(13, "yellow shirt", 8, "S", 4);
+INSERT INTO shirt_store VALUES(14, "yellow shirt", 8, "M", 4);
+INSERT INTO shirt_store VALUES(15, "yellow shirt", 8, "L", 4);
+INSERT INTO shirt_store VALUES(16, "yellow shirt", 8, "XL", 4);
+
+
+SELECT name, SUM(quantity) FROM shirt_store GROUP BY name;
+
+SELECT size, SUM(quantity) FROM shirt_store GROUP BY size;
+
+SELECT quantity, SUM(quantity) FROM shirt_store GROUP BY price;
