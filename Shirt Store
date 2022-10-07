@@ -25,4 +25,4 @@ SELECT name, SUM(quantity) FROM shirt_store GROUP BY name;
 --quantity of each size shirt
 SELECT size, SUM(quantity) FROM shirt_store GROUP BY size;
 --shirt we have the least amount of
-SELECT name, MIN(quantity) FROM shirt_store;
+SELECT name, size, MIN(quantity) FROM shirt_store;
