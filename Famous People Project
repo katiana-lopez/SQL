@@ -1,0 +1,38 @@
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY, fullname TEXT, age INTEGER);
+insert into movie_stars values (1, 'Ryan Reynolds', 46);
+insert into movie_stars values (2, 'Blake Lively', 35);
+insert into movie_stars values (3, 'John Krasinski', 43);
+insert into movie_stars values (4, 'Emily Blunt', 35);
+
+CREATE TABLE marriages (id INTEGER PRIMARY KEY, person1 INTEGER, person2 INTEGER);
+insert into marriages values(1, 1, 2);
+insert into marriages values (2, 2, 1);
+insert into marriages values (3, 3, 4);
+insert into marriages values (4, 4, 3);
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY, person_id INTEGER, movie_name TEXT);
+insert into movies values (1, 1, 'Green Lantern');
+insert into movies values(2, 2, 'Green Lantern');
+insert into movies values (3, 3, 'Animal Crackers');
+insert into movies values (4, 4, 'Animal Crackers');
+insert into movies values (5, 1, 'If');
+insert into movies values (6, 3, 'If');
+insert into movies values (7, 3, 'A Quiet Place');
+insert into movies values (8, 4, 'A Quiet Place');
+
+
+
+/**who is married to who?**/
+select a.fullname, b.fullname
+from marriages
+join movie_stars a 
+on a.id = marriages.person1
+join movie_stars b 
+on b.id = marriages.person2
+group by a.fullname; 
+
+/** who has been in what movie?**/
+select movie_stars.fullname, movies.movie_name
+from movies 
+join movie_stars 
+on movie_stars.id = movies.person_id;
